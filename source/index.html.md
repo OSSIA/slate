@@ -2,17 +2,21 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
+  - c
+  - cpp
   - python
-  - javascript
+  - qml
+  - java
+  - ofx
+  - Unity
+  - Pd
+  - max
+  - sc
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://github.com/OSSIA/libossia'>Get libossia on Github</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
-includes:
-  - errors
 
 search: true
 ---
@@ -25,215 +29,453 @@ We have language bindings in Shell, Ruby, and Python! You can view code examples
 
 This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
-# Authentication
 
-> To authorize, use this code:
+# Architecture
 
-```ruby
-require 'kittn'
+## Local device
+```c
+```
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```cpp
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
 ```
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+```qml
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
+```java
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+```ofx
+```
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+```Unity
+```
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+```Pd
+```
 
-`Authorization: meowmeowmeow`
+```max
+```
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+```sc
+```
 
-# Kittens
 
-## Get All Kittens
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+Ability to create a local device for the application
+
+## Remote Device
+```c
+```
+
+```cpp
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
 ```
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+```qml
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+```java
 ```
 
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+```ofx
 ```
 
-This endpoint retrieves all kittens.
+```Unity
+```
 
-### HTTP Request
+```Pd
+```
 
-`GET http://example.com/api/kittens`
+```max
+```
 
-### Query Parameters
+```sc
+```
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+Ability to connect to an existing device and exchange messages with it
 
-## Get a Specific Kitten
+## Address properties
+```c
+```
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+```cpp
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
 ```
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+```qml
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+```java
 ```
 
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
+```ofx
 ```
 
-This endpoint retrieves a specific kitten.
+```Unity
+```
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+```Pd
+```
 
-### HTTP Request
+```max
+```
 
-`GET http://example.com/kittens/<ID>`
+```sc
+```
 
-### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Being able to get & set various properties on addresses : domain, accesss mode, description, etc
 
-## Delete a Specific Kitten
+## Extended properties
+```c
+```
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
+```cpp
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
 ```
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+```qml
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+```java
 ```
 
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
+```ofx
 ```
 
-This endpoint retrieves a specific kitten.
+```Unity
+```
 
-### HTTP Request
+```Pd
+```
 
-`DELETE http://example.com/kittens/<ID>`
+```max
+```
 
-### URL Parameters
+```sc
+```
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+
+Being able to get & set less common properties: critical, hidden, etc
+
+## Address callbacks
+```c
+```
+
+```cpp
+```
+
+```python
+```
+
+```qml
+```
+
+```java
+```
+
+```ofx
+```
+
+```Unity
+```
+
+```Pd
+```
+
+```max
+```
+
+```sc
+```
+
+
+Being able to do something in reaction to a value being received through the network
+
+## Device callbacks
+```c
+```
+
+```cpp
+```
+
+```python
+```
+
+```qml
+```
+
+```java
+```
+
+```ofx
+```
+
+```Unity
+```
+
+```Pd
+```
+
+```max
+```
+
+```sc
+```
+
+
+Being able to do something in reaction to a node being created, removed, etc
+
+## Logging
+```c
+```
+
+```cpp
+```
+
+```python
+```
+
+```qml
+```
+
+```java
+```
+
+```ofx
+```
+
+```Unity
+```
+
+```Pd
+```
+
+```max
+```
+
+```sc
+```
+
+
+Being able to use the libossia logging facilities
+
+## Preset
+```c
+```
+
+```cpp
+```
+
+```python
+```
+
+```qml
+```
+
+```java
+```
+
+```ofx
+```
+
+```Unity
+```
+
+```Pd
+```
+
+```max
+```
+
+```sc
+```
+
+
+Being able to load & save preset files
+
+## Preset instances
+```c
+```
+
+```cpp
+```
+
+```python
+```
+
+```qml
+```
+
+```java
+```
+
+```ofx
+```
+
+```Unity
+```
+
+```Pd
+```
+
+```max
+```
+
+```sc
+```
+
+
+Being able to create new objects in reaction to the loading of a preset
+
+# Communication
+## Midi, OSC, OSCQuery
+```c
+```
+
+```cpp
+```
+
+```python
+```
+
+```qml
+```
+
+```java
+```
+
+```ofx
+```
+
+```Unity
+```
+
+```Pd
+```
+
+```max
+```
+
+```sc
+```
+
+
+Being able to create the relevant protocol
+
+## OSCQuery instances
+```c
+```
+
+```cpp
+```
+
+```python
+```
+
+```qml
+```
+
+```java
+```
+
+```ofx
+```
+
+```Unity
+```
+
+```Pd
+```
+
+```max
+```
+
+```sc
+```
+
+
+Being able to create and remove objects in reaction to OSCQuery messages
+
+## Raw messages
+```c
+```
+
+```cpp
+```
+
+```python
+```
+
+```qml
+```
+
+```java
+```
+
+```ofx
+```
+
+```Unity
+```
+
+```Pd
+```
+
+```max
+```
+
+```sc
+```
+
+
+Being able to send messages without the node actually existing in the tree, e.g. like a "basic" OSC library
+
+## Pattern matching
+```c
+```
+
+```cpp
+```
+
+```python
+```
+
+```qml
+```
+
+```java
+```
+
+```ofx
+```
+
+```Unity
+```
+
+```Pd
+```
+
+```max
+```
+
+```sc
+```
+
+
+Being able to send and receive messages according to OSC pattern matching addresses
+
+
 
